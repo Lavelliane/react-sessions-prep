@@ -26,6 +26,7 @@ const shoppingList = [
 
 function App() {
   const [list, setList] = useState(shoppingList);
+  const [showAddTask, setShowAddTask] = useState(false);
 
   const handleAdd = (task) => {
     setList((list) => [...list, task]);
@@ -45,8 +46,12 @@ function App() {
 
   return (
     <div className="container">
-      <Header title="Task Tracker" />
-      <AddEntry onAdd={handleAdd} />
+      <Header
+        title="Task Tracker"
+        showAddTask={showAddTask}
+        setShowAddTask={setShowAddTask}
+      />
+      {showAddTask && <AddEntry onAdd={handleAdd} />}
       <ShoppingList
         shoppingList={list}
         onDelete={handleDelete}
