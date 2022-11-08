@@ -8,7 +8,16 @@ function AddEntry({ onAdd }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!text) {
+      alert("Please add a task");
+      return;
+    }
+
     onAdd({ text, quantity, reminder });
+
+    setText("");
+    setQuantity("");
+    setReminder(false);
   };
 
   return (
@@ -38,7 +47,7 @@ function AddEntry({ onAdd }) {
         <input
           id="reminder"
           type="checkbox"
-          value={reminder}
+          checked={reminder}
           onChange={(e) => setReminder(e.currentTarget.checked)}
         />
       </div>
