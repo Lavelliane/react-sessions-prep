@@ -3,10 +3,14 @@ import Header from "./components/Header";
 import ShoppingList from "./components/ShoppingList";
 
 function App() {
+  const handleAdd = (task) => {
+    console.log(task);
+  };
+
   return (
     <div className="container">
       <Header title="Task Tracker" />
-      <AddEntry />
+      <AddEntry onAdd={handleAdd} />
       <ShoppingList />
     </div>
   );

@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 
-function AddEntry() {
+function AddEntry({ onAdd }) {
   const [text, setText] = useState("");
   const [quantity, setQuantity] = useState("");
   const [reminder, setReminder] = useState(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    onAdd({ text, quantity, reminder });
+  };
+
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={handleSubmit}>
       <div className="form-control">
         <label htmlFor="task">Task</label>
         <input

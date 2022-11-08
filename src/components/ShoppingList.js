@@ -31,7 +31,9 @@ function ShoppingList() {
 
   const handleReminderToggle = (id) => {
     setList((list) =>
-      list.map((entry) => (entry.id === id ? { ...entry, reminder: !entry.reminder } : entry))
+      list.map((entry) =>
+        entry.id === id ? { ...entry, reminder: !entry.reminder } : entry
+      )
     );
   };
 
