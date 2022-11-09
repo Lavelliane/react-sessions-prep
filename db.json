@@ -11,12 +11,6 @@
       "text": "Flour",
       "quantity": "2 kg",
       "reminder": true
-    },
-    {
-      "id": 3,
-      "text": "Strawberries",
-      "quantity": "20 pieces",
-      "reminder": false
     }
   ]
 }
