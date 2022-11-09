@@ -7,13 +7,13 @@ function App() {
   const [list, setList] = useState([]);
   const [showAddTask, setShowAddTask] = useState(false);
 
-  const handleAdd = async (task) => {
-    const res = await fetch("http://localhost:5000/tasks", {
+  const handleAdd = async (item) => {
+    const res = await fetch("http://localhost:5000/items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(task),
+      body: JSON.stringify(item),
     });
 
     const data = await res.json();
@@ -22,30 +22,49 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`http://localhost:5000/items/${id}`, {
       method: "DELETE",
     });
 
     setList((list) => list.filter((entry) => entry.id !== id));
   };
 
-  const handleReminderToggle = (id) => {
+  const handleReminderToggle = async (id) => {
+    const itemToToggle = await fetchItem(id);
+    const updatedItem = { ...itemToToggle, reminder: !itemToToggle.reminder };
+
+    const res = await fetch(`http://localhost:5000/items/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedItem),
+    });
+
+    const data = await res.json();
+
     setList((list) =>
       list.map((entry) =>
-        entry.id === id ? { ...entry, reminder: !entry.reminder } : entry
+        entry.id === id ? { ...entry, reminder: data.reminder } : entry
       )
     );
   };
 
-  const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+  const fetchItems = async () => {
+    const res = await fetch("http://localhost:5000/items");
+    const data = await res.json();
+    return data;
+  };
+
+  const fetchItem = async (id) => {
+    const res = await fetch(`http://localhost:5000/items/${id}`);
     const data = await res.json();
     return data;
   };
 
   useEffect(() => {
     const setShoppingList = async () => {
-      const shoppingList = await fetchTasks();
+      const shoppingList = await fetchItems();
       setList(shoppingList);
     };
 
@@ -55,7 +74,7 @@ function App() {
   return (
     <div className="container">
       <Header
-        title="Task Tracker"
+        title="Shopping Cart"
         showAddTask={showAddTask}
         setShowAddTask={setShowAddTask}
       />

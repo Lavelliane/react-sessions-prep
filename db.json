@@ -1,5 +1,5 @@
 {
-  "tasks": [
+  "items": [
     {
       "id": 1,
       "text": "Eggs",
@@ -10,7 +10,7 @@
       "id": 2,
       "text": "Flour",
       "quantity": "2 kg",
-      "reminder": true
+      "reminder": false
     }
   ]
 }
