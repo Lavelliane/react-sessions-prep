@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddEntry from "./components/AddEntry";
 import Header from "./components/Header";
 import ShoppingList from "./components/ShoppingList";
@@ -22,6 +22,21 @@ function App() {
       )
     );
   };
+
+  const fetchTasks = async () => {
+    const res = await fetch("http://localhost:5000/tasks");
+    const data = await res.json();
+    return data;
+  };
+
+  useEffect(() => {
+    const setShoppingList = async () => {
+      const shoppingList = await fetchTasks();
+      setList(shoppingList);
+    };
+
+    setShoppingList();
+  }, []);
 
   return (
     <div className="container">
