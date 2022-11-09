@@ -9,7 +9,7 @@ function AddEntry({ onAdd }) {
     e.preventDefault();
 
     if (!text) {
-      alert("Please add a task");
+      alert("Please add an item");
       return;
     }
 
@@ -23,11 +23,11 @@ function AddEntry({ onAdd }) {
   return (
     <form className="add-form" onSubmit={handleSubmit}>
       <div className="form-control">
-        <label htmlFor="task">Task</label>
+        <label htmlFor="item">Item</label>
         <input
-          id="task"
+          id="item"
           type="text"
-          placeholder="Add Task"
+          placeholder="Add Item"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
@@ -52,7 +52,7 @@ function AddEntry({ onAdd }) {
         />
       </div>
 
-      <input type="submit" value="Save Task" className="btn btn-block" />
+      <input type="submit" value="Save Item" className="btn btn-block" />
     </form>
   );
 }

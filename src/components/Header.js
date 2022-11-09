@@ -1,16 +1,16 @@
 import Button from "./Button";
 
-export default function Header({ title, showAddTask, setShowAddTask }) {
+export default function Header({ title, showAddItem, setShowAddItem }) {
   function onClick() {
-    setShowAddTask(!showAddTask);
+    setShowAddItem(!showAddItem);
   }
 
   return (
     <header className="header">
       <h1>{title}</h1>
       <Button
-        color={showAddTask ? "red" : "green"}
-        text={showAddTask ? "Close" : "Add"}
+        color={showAddItem ? "red" : "green"}
+        text={showAddItem ? "Close" : "Add"}
         onClick={onClick}
       />
     </header>
@@ -18,9 +18,5 @@ export default function Header({ title, showAddTask, setShowAddTask }) {
 }
 
 Header.defaultProps = {
-  title: "Task Tracker (Default)",
-};
-
-const headingStyle = {
-  backgroundColor: "black",
+  title: "Shopping List (Default)",
 };

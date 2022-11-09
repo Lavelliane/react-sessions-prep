@@ -4,7 +4,7 @@
       "id": 1,
       "text": "Eggs",
       "quantity": "1 dozen",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 2,

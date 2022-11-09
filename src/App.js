@@ -5,7 +5,7 @@ import ShoppingList from "./components/ShoppingList";
 
 function App() {
   const [list, setList] = useState([]);
-  const [showAddTask, setShowAddTask] = useState(false);
+  const [showAddItem, setShowAddItem] = useState(false);
 
   const handleAdd = async (item) => {
     const res = await fetch("http://localhost:5000/items", {
@@ -75,10 +75,10 @@ function App() {
     <div className="container">
       <Header
         title="Shopping Cart"
-        showAddTask={showAddTask}
-        setShowAddTask={setShowAddTask}
+        showAddItem={showAddItem}
+        setShowAddItem={setShowAddItem}
       />
-      {showAddTask && <AddEntry onAdd={handleAdd} />}
+      {showAddItem && <AddEntry onAdd={handleAdd} />}
       <ShoppingList
         shoppingList={list}
         onDelete={handleDelete}
