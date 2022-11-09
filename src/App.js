@@ -7,8 +7,18 @@ function App() {
   const [list, setList] = useState([]);
   const [showAddTask, setShowAddTask] = useState(false);
 
-  const handleAdd = (task) => {
-    setList((list) => [...list, task]);
+  const handleAdd = async (task) => {
+    const res = await fetch("http://localhost:5000/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+
+    const data = await res.json();
+
+    setList((list) => [...list, data]);
   };
 
   const handleDelete = async (id) => {
