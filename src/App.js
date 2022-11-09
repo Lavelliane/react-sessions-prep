@@ -3,29 +3,8 @@ import AddEntry from "./components/AddEntry";
 import Header from "./components/Header";
 import ShoppingList from "./components/ShoppingList";
 
-const shoppingList = [
-  {
-    id: 1,
-    text: "Eggs",
-    quantity: "1 dozen",
-    reminder: true,
-  },
-  {
-    id: 2,
-    text: "Flour",
-    quantity: "2 kg",
-    reminder: true,
-  },
-  {
-    id: 3,
-    text: "Strawberries",
-    quantity: "20 pieces",
-    reminder: false,
-  },
-];
-
 function App() {
-  const [list, setList] = useState(shoppingList);
+  const [list, setList] = useState([]);
   const [showAddTask, setShowAddTask] = useState(false);
 
   const handleAdd = (task) => {

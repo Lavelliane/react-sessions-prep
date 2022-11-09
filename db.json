@@ -1,19 +1,22 @@
 {
-  "posts": [
+  "tasks": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "text": "Eggs",
+      "quantity": "1 dozen",
+      "reminder": true
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "text": "Flour",
+      "quantity": "2 kg",
+      "reminder": true
+    },
+    {
+      "id": 3,
+      "text": "Strawberries",
+      "quantity": "20 pieces",
+      "reminder": false
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
