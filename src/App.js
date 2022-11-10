@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddEntry from "./components/AddEntry";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -74,20 +75,33 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <Header
-        title="Shopping Cart"
-        showAddItem={showAddItem}
-        setShowAddItem={setShowAddItem}
-      />
-      {showAddItem && <AddEntry onAdd={handleAdd} />}
-      <ShoppingList
-        shoppingList={list}
-        onDelete={handleDelete}
-        onToggle={handleReminderToggle}
-      />
-      <Footer />
-    </div>
+    <Router>
+      <div className="container">
+        <Header
+          title="Shopping Cart"
+          showAddItem={showAddItem}
+          setShowAddItem={setShowAddItem}
+        />
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <>
+                {showAddItem && <AddEntry onAdd={handleAdd} />}
+                <ShoppingList
+                  shoppingList={list}
+                  onDelete={handleDelete}
+                  onToggle={handleReminderToggle}
+                />
+              </>
+            }
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
