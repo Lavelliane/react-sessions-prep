@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import AddEntry from "./components/AddEntry";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ShoppingList from "./components/ShoppingList";
+import About from "./components/About";
 
 function App() {
   const [list, setList] = useState([]);
@@ -84,6 +86,7 @@ function App() {
         onDelete={handleDelete}
         onToggle={handleReminderToggle}
       />
+      <Footer />
     </div>
   );
 }
