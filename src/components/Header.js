@@ -14,7 +14,7 @@ export default function Header({ title }) {
 }
 
 Header.defaultProps = {
-  title: "Task Tracker (Default)",
+  title: "Shopping List (Default)",
 };
 
 const headingStyle = {

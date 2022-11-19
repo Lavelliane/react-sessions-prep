@@ -4,8 +4,8 @@ function AddEntry() {
   return (
     <form className="add-form">
       <div className="form-control">
-        <label htmlFor="task">Task</label>
-        <input id="task" type="text" placeholder="Add Task" />
+        <label htmlFor="item">Item</label>
+        <input id="item" type="text" placeholder="Add Item" />
       </div>
       <div className="form-control">
         <label htmlFor="quantity">Quantity</label>
@@ -16,7 +16,7 @@ function AddEntry() {
         <input id="reminder" type="checkbox" />
       </div>
 
-      <input type="submit" value="Save Task" className="btn btn-block" />
+      <input type="submit" value="Save Item" className="btn btn-block" />
     </form>
   );
 }

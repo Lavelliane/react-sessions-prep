@@ -5,7 +5,7 @@ import ShoppingList from "./components/ShoppingList";
 function App() {
   return (
     <div className="container">
-      <Header title="Task Tracker" />
+      <Header title="Shopping List" />
       <AddEntry />
       <ShoppingList />
     </div>
