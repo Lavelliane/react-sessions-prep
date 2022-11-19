@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "text": "Eggs",
+      "quantity": "1 dozen",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Flour",
+      "quantity": "2 kg",
+      "reminder": false
+    },
+    {
+      "text": "MIlk",
+      "quantity": "12 cartons",
+      "reminder": false,
+      "id": 3
+    },
+    {
+      "text": "Eggs",
+      "quantity": "2 dozen",
+      "reminder": true,
+      "id": 4
+    }
+  ]
+}
